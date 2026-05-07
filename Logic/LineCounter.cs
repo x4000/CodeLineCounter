@@ -25,18 +25,43 @@ namespace CodeLineCounter
         public CountResult CSharp = new CountResult( "C#" );                 // outside-of-Unity bucket
         public CountResult RuntimeCSharp = new CountResult( "Runtime C#" );  // Unity-only
         public CountResult EditorCSharp = new CountResult( "Editor C#" );    // Unity-only
+        public CountResult FSharp = new CountResult( "F#" );
+        public CountResult Vb = new CountResult( "VB.NET" );
         public CountResult Shaders = new CountResult( "shaders" );
-        public CountResult Xml = new CountResult( "XML" );
-        public CountResult XmlMetadata = new CountResult( "Xml Metadata" );
         public CountResult Cpp = new CountResult( "C++" );
-        public CountResult Js = new CountResult( "JavaScript" );
+        public CountResult ObjectiveC = new CountResult( "Objective-C" );
         public CountResult Java = new CountResult( "Java" );
-        public CountResult Html = new CountResult( "HTML" );
-        public CountResult Lua = new CountResult( "Lua" );
+        public CountResult Kotlin = new CountResult( "Kotlin" );
+        public CountResult Scala = new CountResult( "Scala" );
+        public CountResult Groovy = new CountResult( "Groovy" );
+        public CountResult Js = new CountResult( "JavaScript" );
+        public CountResult TypeScript = new CountResult( "TypeScript" );
+        public CountResult Php = new CountResult( "PHP" );
+        public CountResult Ruby = new CountResult( "Ruby" );
         public CountResult Python = new CountResult( "Python" );
-        public CountResult Json = new CountResult( "JSON" );
+        public CountResult Perl = new CountResult( "Perl" );
+        public CountResult Lua = new CountResult( "Lua" );
+        public CountResult R = new CountResult( "R" );
+        public CountResult Go = new CountResult( "Go" );
+        public CountResult Rust = new CountResult( "Rust" );
+        public CountResult Swift = new CountResult( "Swift" );
+        public CountResult Dart = new CountResult( "Dart" );
+        public CountResult Haskell = new CountResult( "Haskell" );
+        public CountResult Elixir = new CountResult( "Elixir" );
+        public CountResult Erlang = new CountResult( "Erlang" );
+        public CountResult Clojure = new CountResult( "Clojure" );
+        public CountResult PowerShell = new CountResult( "PowerShell" );
         public CountResult Bash = new CountResult( "Bash" );
         public CountResult Batch = new CountResult( "Batch" );
+        public CountResult Sql = new CountResult( "SQL" );
+        public CountResult Html = new CountResult( "HTML" );
+        public CountResult Css = new CountResult( "CSS" );
+        public CountResult Xml = new CountResult( "XML" );
+        public CountResult XmlMetadata = new CountResult( "Xml Metadata" );
+        public CountResult Markdown = new CountResult( "Markdown" );
+        public CountResult Json = new CountResult( "JSON" );
+        public CountResult Yaml = new CountResult( "YAML" );
+        public CountResult Toml = new CountResult( "TOML" );
 
         public ScopeBucket( string label, bool isUnity )
         {
@@ -49,18 +74,43 @@ namespace CodeLineCounter
             yield return RuntimeCSharp;
             yield return EditorCSharp;
             yield return CSharp;
+            yield return FSharp;
+            yield return Vb;
             yield return Shaders;
-            yield return Xml;
-            yield return XmlMetadata;
             yield return Cpp;
-            yield return Js;
+            yield return ObjectiveC;
             yield return Java;
-            yield return Html;
-            yield return Lua;
+            yield return Kotlin;
+            yield return Scala;
+            yield return Groovy;
+            yield return Js;
+            yield return TypeScript;
+            yield return Php;
+            yield return Ruby;
             yield return Python;
-            yield return Json;
+            yield return Perl;
+            yield return Lua;
+            yield return R;
+            yield return Go;
+            yield return Rust;
+            yield return Swift;
+            yield return Dart;
+            yield return Haskell;
+            yield return Elixir;
+            yield return Erlang;
+            yield return Clojure;
+            yield return PowerShell;
             yield return Bash;
             yield return Batch;
+            yield return Sql;
+            yield return Html;
+            yield return Css;
+            yield return Xml;
+            yield return XmlMetadata;
+            yield return Markdown;
+            yield return Json;
+            yield return Yaml;
+            yield return Toml;
         }
 
         public bool HasAnything()
@@ -160,6 +210,131 @@ namespace CodeLineCounter
         private static readonly HashSet<string> BatchExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
         {
             ".bat", ".cmd"
+        };
+
+        private static readonly HashSet<string> TypeScriptExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".ts", ".tsx", ".mts", ".cts"
+        };
+
+        private static readonly HashSet<string> CssExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".css", ".scss", ".sass", ".less"
+        };
+
+        private static readonly HashSet<string> MarkdownExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".md", ".markdown"
+        };
+
+        private static readonly HashSet<string> YamlExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".yml", ".yaml"
+        };
+
+        private static readonly HashSet<string> TomlExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".toml"
+        };
+
+        private static readonly HashSet<string> GoExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".go"
+        };
+
+        private static readonly HashSet<string> RustExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".rs"
+        };
+
+        private static readonly HashSet<string> SwiftExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".swift"
+        };
+
+        private static readonly HashSet<string> KotlinExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".kt", ".kts"
+        };
+
+        private static readonly HashSet<string> DartExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".dart"
+        };
+
+        private static readonly HashSet<string> ScalaExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".scala", ".sc"
+        };
+
+        private static readonly HashSet<string> PhpExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".php", ".phtml"
+        };
+
+        private static readonly HashSet<string> ObjectiveCExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".m", ".mm"
+        };
+
+        private static readonly HashSet<string> SqlExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".sql"
+        };
+
+        private static readonly HashSet<string> RubyExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".rb"
+        };
+
+        private static readonly HashSet<string> FSharpExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".fs", ".fsx", ".fsi"
+        };
+
+        private static readonly HashSet<string> VbExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".vb"
+        };
+
+        private static readonly HashSet<string> GroovyExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".groovy", ".gvy", ".gradle"
+        };
+
+        private static readonly HashSet<string> RExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".r"
+        };
+
+        private static readonly HashSet<string> PerlExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".pl", ".pm"
+        };
+
+        private static readonly HashSet<string> HaskellExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".hs", ".lhs"
+        };
+
+        private static readonly HashSet<string> ElixirExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".ex", ".exs"
+        };
+
+        private static readonly HashSet<string> ErlangExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".erl", ".hrl"
+        };
+
+        private static readonly HashSet<string> ClojureExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".clj", ".cljs", ".cljc", ".edn"
+        };
+
+        private static readonly HashSet<string> PowerShellExtensions = new HashSet<string>( StringComparer.OrdinalIgnoreCase )
+        {
+            ".ps1", ".psm1", ".psd1"
         };
 
         private struct StackEntry
@@ -322,16 +497,41 @@ namespace CodeLineCounter
             }
             if ( ShaderExtensions.Contains( ext ) ) return scope.Shaders;
             if ( CppExtensions.Contains( ext ) ) return scope.Cpp;
-            if ( JavaScriptExtensions.Contains( ext ) ) return scope.Js;
+            if ( ObjectiveCExtensions.Contains( ext ) ) return scope.ObjectiveC;
             if ( JavaExtensions.Contains( ext ) ) return scope.Java;
-            if ( XmlExtensions.Contains( ext ) ) return scope.Xml;
-            if ( XmlMetadataExtensions.Contains( ext ) ) return scope.XmlMetadata;
-            if ( HtmlExtensions.Contains( ext ) ) return scope.Html;
-            if ( LuaExtensions.Contains( ext ) ) return scope.Lua;
+            if ( KotlinExtensions.Contains( ext ) ) return scope.Kotlin;
+            if ( ScalaExtensions.Contains( ext ) ) return scope.Scala;
+            if ( GroovyExtensions.Contains( ext ) ) return scope.Groovy;
+            if ( JavaScriptExtensions.Contains( ext ) ) return scope.Js;
+            if ( TypeScriptExtensions.Contains( ext ) ) return scope.TypeScript;
+            if ( PhpExtensions.Contains( ext ) ) return scope.Php;
+            if ( RubyExtensions.Contains( ext ) ) return scope.Ruby;
             if ( PythonExtensions.Contains( ext ) ) return scope.Python;
-            if ( JsonExtensions.Contains( ext ) ) return scope.Json;
+            if ( PerlExtensions.Contains( ext ) ) return scope.Perl;
+            if ( LuaExtensions.Contains( ext ) ) return scope.Lua;
+            if ( RExtensions.Contains( ext ) ) return scope.R;
+            if ( GoExtensions.Contains( ext ) ) return scope.Go;
+            if ( RustExtensions.Contains( ext ) ) return scope.Rust;
+            if ( SwiftExtensions.Contains( ext ) ) return scope.Swift;
+            if ( DartExtensions.Contains( ext ) ) return scope.Dart;
+            if ( HaskellExtensions.Contains( ext ) ) return scope.Haskell;
+            if ( ElixirExtensions.Contains( ext ) ) return scope.Elixir;
+            if ( ErlangExtensions.Contains( ext ) ) return scope.Erlang;
+            if ( ClojureExtensions.Contains( ext ) ) return scope.Clojure;
+            if ( FSharpExtensions.Contains( ext ) ) return scope.FSharp;
+            if ( VbExtensions.Contains( ext ) ) return scope.Vb;
+            if ( PowerShellExtensions.Contains( ext ) ) return scope.PowerShell;
             if ( BashExtensions.Contains( ext ) ) return scope.Bash;
             if ( BatchExtensions.Contains( ext ) ) return scope.Batch;
+            if ( SqlExtensions.Contains( ext ) ) return scope.Sql;
+            if ( HtmlExtensions.Contains( ext ) ) return scope.Html;
+            if ( CssExtensions.Contains( ext ) ) return scope.Css;
+            if ( XmlExtensions.Contains( ext ) ) return scope.Xml;
+            if ( XmlMetadataExtensions.Contains( ext ) ) return scope.XmlMetadata;
+            if ( MarkdownExtensions.Contains( ext ) ) return scope.Markdown;
+            if ( JsonExtensions.Contains( ext ) ) return scope.Json;
+            if ( YamlExtensions.Contains( ext ) ) return scope.Yaml;
+            if ( TomlExtensions.Contains( ext ) ) return scope.Toml;
             return null;
         }
 
@@ -340,8 +540,19 @@ namespace CodeLineCounter
             if ( CSharpExtensions.Contains( ext )
                 || ShaderExtensions.Contains( ext )
                 || CppExtensions.Contains( ext )
+                || ObjectiveCExtensions.Contains( ext )
                 || JavaScriptExtensions.Contains( ext )
-                || JavaExtensions.Contains( ext ) )
+                || TypeScriptExtensions.Contains( ext )
+                || JavaExtensions.Contains( ext )
+                || KotlinExtensions.Contains( ext )
+                || ScalaExtensions.Contains( ext )
+                || GroovyExtensions.Contains( ext )
+                || PhpExtensions.Contains( ext )
+                || GoExtensions.Contains( ext )
+                || RustExtensions.Contains( ext )
+                || SwiftExtensions.Contains( ext )
+                || DartExtensions.Contains( ext )
+                || CssExtensions.Contains( ext ) )
             {
                 ParseCStyle( lines, result );
             }
@@ -368,6 +579,50 @@ namespace CodeLineCounter
             else if ( BatchExtensions.Contains( ext ) )
             {
                 ParseBatch( lines, result );
+            }
+            else if ( PowerShellExtensions.Contains( ext ) )
+            {
+                ParsePowerShell( lines, result );
+            }
+            else if ( SqlExtensions.Contains( ext ) )
+            {
+                ParseSql( lines, result );
+            }
+            else if ( RubyExtensions.Contains( ext ) )
+            {
+                ParseRuby( lines, result );
+            }
+            else if ( FSharpExtensions.Contains( ext ) )
+            {
+                ParseFSharp( lines, result );
+            }
+            else if ( VbExtensions.Contains( ext ) )
+            {
+                ParseVb( lines, result );
+            }
+            else if ( HaskellExtensions.Contains( ext ) )
+            {
+                ParseHaskell( lines, result );
+            }
+            else if ( YamlExtensions.Contains( ext )
+                || TomlExtensions.Contains( ext )
+                || RExtensions.Contains( ext )
+                || PerlExtensions.Contains( ext )
+                || ElixirExtensions.Contains( ext ) )
+            {
+                ParseHashLineStyle( lines, result );
+            }
+            else if ( ErlangExtensions.Contains( ext ) )
+            {
+                ParseSingleCharLineStyle( lines, result, '%' );
+            }
+            else if ( ClojureExtensions.Contains( ext ) )
+            {
+                ParseSingleCharLineStyle( lines, result, ';' );
+            }
+            else if ( MarkdownExtensions.Contains( ext ) )
+            {
+                ParseNoComments( lines, result );
             }
         }
 
@@ -396,11 +651,18 @@ namespace CodeLineCounter
 
             if ( categoriesShown > 1 )
             {
-                CountResult sub = new CountResult( "subtotal" );
-                sub.Files = fileSubtotal;
-                sub.CodeLines = codeSubtotal;
-                sub.CommentLines = commentSubtotal;
-                log( "  " + FormatLine( sub ) );
+                string subtotalLine;
+                if ( commentSubtotal == 0 )
+                {
+                    subtotalLine = string.Format( "{0,12:N0} Subtotal across {1:N0} files",
+                        codeSubtotal, fileSubtotal );
+                }
+                else
+                {
+                    subtotalLine = string.Format( "{0,12:N0} Subtotal (+{1:N0} lines of comments) across {2:N0} files",
+                        codeSubtotal, commentSubtotal, fileSubtotal );
+                }
+                log( "  " + subtotalLine );
             }
             log( "" );
         }
@@ -988,6 +1250,377 @@ namespace CodeLineCounter
 
                 if ( isComment ) result.CommentLines++;
                 else result.CodeLines++;
+            }
+        }
+
+        private static void ParsePowerShell( List<string> lines, CountResult result )
+        {
+            bool inBlockComment = false;
+
+            foreach ( string line in lines )
+            {
+                bool hasCode = false;
+                bool hasComment = false;
+                int i = 0;
+                int n = line.Length;
+
+                while ( i < n )
+                {
+                    if ( inBlockComment )
+                    {
+                        hasComment = true;
+                        int idx = line.IndexOf( "#>", i, StringComparison.Ordinal );
+                        if ( idx < 0 ) { i = n; break; }
+                        inBlockComment = false;
+                        i = idx + 2;
+                        continue;
+                    }
+
+                    char c = line[i];
+                    char next = ( i + 1 < n ) ? line[i + 1] : '\0';
+
+                    if ( c == '<' && next == '#' )
+                    {
+                        hasComment = true;
+                        inBlockComment = true;
+                        i += 2;
+                        int idx = line.IndexOf( "#>", i, StringComparison.Ordinal );
+                        if ( idx >= 0 ) { inBlockComment = false; i = idx + 2; }
+                        else { i = n; }
+                        continue;
+                    }
+                    if ( c == '#' )
+                    {
+                        hasComment = true;
+                        break;
+                    }
+                    if ( c == '"' || c == '\'' )
+                    {
+                        hasCode = true;
+                        char quote = c;
+                        i++;
+                        ConsumeRegularString( line, ref i, n, quote );
+                        continue;
+                    }
+
+                    if ( !char.IsWhiteSpace( c ) )
+                        hasCode = true;
+                    i++;
+                }
+
+                if ( hasCode ) result.CodeLines++;
+                else if ( hasComment ) result.CommentLines++;
+                else result.BlankLines++;
+            }
+        }
+
+        private static void ParseSql( List<string> lines, CountResult result )
+        {
+            bool inBlockComment = false;
+
+            foreach ( string line in lines )
+            {
+                bool hasCode = false;
+                bool hasComment = false;
+                int i = 0;
+                int n = line.Length;
+
+                while ( i < n )
+                {
+                    if ( inBlockComment )
+                    {
+                        hasComment = true;
+                        int idx = line.IndexOf( "*/", i, StringComparison.Ordinal );
+                        if ( idx < 0 ) { i = n; break; }
+                        inBlockComment = false;
+                        i = idx + 2;
+                        continue;
+                    }
+
+                    char c = line[i];
+                    char next = ( i + 1 < n ) ? line[i + 1] : '\0';
+
+                    if ( c == '-' && next == '-' )
+                    {
+                        hasComment = true;
+                        break;
+                    }
+                    if ( c == '/' && next == '*' )
+                    {
+                        hasComment = true;
+                        inBlockComment = true;
+                        i += 2;
+                        int idx = line.IndexOf( "*/", i, StringComparison.Ordinal );
+                        if ( idx >= 0 ) { inBlockComment = false; i = idx + 2; }
+                        else { i = n; }
+                        continue;
+                    }
+                    if ( c == '\'' )
+                    {
+                        hasCode = true;
+                        i++;
+                        // SQL strings: doubled '' is an escaped single quote
+                        while ( i < n )
+                        {
+                            if ( line[i] == '\'' )
+                            {
+                                if ( i + 1 < n && line[i + 1] == '\'' ) { i += 2; continue; }
+                                i++;
+                                break;
+                            }
+                            i++;
+                        }
+                        continue;
+                    }
+                    if ( c == '"' )
+                    {
+                        hasCode = true;
+                        i++;
+                        ConsumeRegularString( line, ref i, n, '"' );
+                        continue;
+                    }
+
+                    if ( !char.IsWhiteSpace( c ) )
+                        hasCode = true;
+                    i++;
+                }
+
+                if ( hasCode ) result.CodeLines++;
+                else if ( hasComment ) result.CommentLines++;
+                else result.BlankLines++;
+            }
+        }
+
+        private static void ParseRuby( List<string> lines, CountResult result )
+        {
+            bool inBlockComment = false;
+
+            foreach ( string line in lines )
+            {
+                if ( inBlockComment )
+                {
+                    result.CommentLines++;
+                    if ( line.StartsWith( "=end", StringComparison.Ordinal )
+                        && ( line.Length == 4 || char.IsWhiteSpace( line[4] ) ) )
+                    {
+                        inBlockComment = false;
+                    }
+                    continue;
+                }
+                if ( line.StartsWith( "=begin", StringComparison.Ordinal )
+                    && ( line.Length == 6 || char.IsWhiteSpace( line[6] ) ) )
+                {
+                    inBlockComment = true;
+                    result.CommentLines++;
+                    continue;
+                }
+
+                int firstNonWs = 0;
+                while ( firstNonWs < line.Length && char.IsWhiteSpace( line[firstNonWs] ) )
+                    firstNonWs++;
+                if ( firstNonWs >= line.Length ) result.BlankLines++;
+                else if ( line[firstNonWs] == '#' ) result.CommentLines++;
+                else result.CodeLines++;
+            }
+        }
+
+        private static void ParseFSharp( List<string> lines, CountResult result )
+        {
+            int blockDepth = 0;
+
+            foreach ( string line in lines )
+            {
+                bool hasCode = false;
+                bool hasComment = false;
+                int i = 0;
+                int n = line.Length;
+
+                while ( i < n )
+                {
+                    if ( blockDepth > 0 )
+                    {
+                        hasComment = true;
+                        int closeIdx = line.IndexOf( "*)", i, StringComparison.Ordinal );
+                        int openIdx = line.IndexOf( "(*", i, StringComparison.Ordinal );
+                        if ( openIdx >= 0 && ( closeIdx < 0 || openIdx < closeIdx ) )
+                        {
+                            blockDepth++;
+                            i = openIdx + 2;
+                            continue;
+                        }
+                        if ( closeIdx >= 0 )
+                        {
+                            blockDepth--;
+                            i = closeIdx + 2;
+                            continue;
+                        }
+                        i = n;
+                        break;
+                    }
+
+                    char c = line[i];
+                    char next = ( i + 1 < n ) ? line[i + 1] : '\0';
+
+                    if ( c == '/' && next == '/' )
+                    {
+                        hasComment = true;
+                        break;
+                    }
+                    if ( c == '(' && next == '*' )
+                    {
+                        hasComment = true;
+                        blockDepth++;
+                        i += 2;
+                        continue;
+                    }
+                    if ( c == '"' )
+                    {
+                        hasCode = true;
+                        i++;
+                        ConsumeRegularString( line, ref i, n, '"' );
+                        continue;
+                    }
+
+                    if ( !char.IsWhiteSpace( c ) )
+                        hasCode = true;
+                    i++;
+                }
+
+                if ( hasCode ) result.CodeLines++;
+                else if ( hasComment ) result.CommentLines++;
+                else result.BlankLines++;
+            }
+        }
+
+        private static void ParseVb( List<string> lines, CountResult result )
+        {
+            foreach ( string line in lines )
+            {
+                int firstNonWs = 0;
+                while ( firstNonWs < line.Length && char.IsWhiteSpace( line[firstNonWs] ) )
+                    firstNonWs++;
+                if ( firstNonWs >= line.Length )
+                {
+                    result.BlankLines++;
+                    continue;
+                }
+
+                bool isComment = false;
+                if ( line[firstNonWs] == '\'' )
+                {
+                    isComment = true;
+                }
+                else if ( firstNonWs + 2 < line.Length
+                    && ( line[firstNonWs] == 'R' || line[firstNonWs] == 'r' )
+                    && ( line[firstNonWs + 1] == 'E' || line[firstNonWs + 1] == 'e' )
+                    && ( line[firstNonWs + 2] == 'M' || line[firstNonWs + 2] == 'm' )
+                    && ( firstNonWs + 3 == line.Length || char.IsWhiteSpace( line[firstNonWs + 3] ) ) )
+                {
+                    isComment = true;
+                }
+
+                if ( isComment ) result.CommentLines++;
+                else result.CodeLines++;
+            }
+        }
+
+        private static void ParseHaskell( List<string> lines, CountResult result )
+        {
+            int blockDepth = 0;
+
+            foreach ( string line in lines )
+            {
+                bool hasCode = false;
+                bool hasComment = false;
+                int i = 0;
+                int n = line.Length;
+
+                while ( i < n )
+                {
+                    if ( blockDepth > 0 )
+                    {
+                        hasComment = true;
+                        int closeIdx = line.IndexOf( "-}", i, StringComparison.Ordinal );
+                        int openIdx = line.IndexOf( "{-", i, StringComparison.Ordinal );
+                        if ( openIdx >= 0 && ( closeIdx < 0 || openIdx < closeIdx ) )
+                        {
+                            blockDepth++;
+                            i = openIdx + 2;
+                            continue;
+                        }
+                        if ( closeIdx >= 0 )
+                        {
+                            blockDepth--;
+                            i = closeIdx + 2;
+                            continue;
+                        }
+                        i = n;
+                        break;
+                    }
+
+                    char c = line[i];
+                    char next = ( i + 1 < n ) ? line[i + 1] : '\0';
+
+                    if ( c == '-' && next == '-' )
+                    {
+                        hasComment = true;
+                        break;
+                    }
+                    if ( c == '{' && next == '-' )
+                    {
+                        hasComment = true;
+                        blockDepth++;
+                        i += 2;
+                        continue;
+                    }
+                    if ( c == '"' )
+                    {
+                        hasCode = true;
+                        i++;
+                        ConsumeRegularString( line, ref i, n, '"' );
+                        continue;
+                    }
+
+                    if ( !char.IsWhiteSpace( c ) )
+                        hasCode = true;
+                    i++;
+                }
+
+                if ( hasCode ) result.CodeLines++;
+                else if ( hasComment ) result.CommentLines++;
+                else result.BlankLines++;
+            }
+        }
+
+        private static void ParseHashLineStyle( List<string> lines, CountResult result )
+        {
+            ParseSingleCharLineStyle( lines, result, '#' );
+        }
+
+        private static void ParseSingleCharLineStyle( List<string> lines, CountResult result, char commentChar )
+        {
+            foreach ( string line in lines )
+            {
+                int firstNonWs = 0;
+                while ( firstNonWs < line.Length && char.IsWhiteSpace( line[firstNonWs] ) )
+                    firstNonWs++;
+                if ( firstNonWs >= line.Length ) result.BlankLines++;
+                else if ( line[firstNonWs] == commentChar ) result.CommentLines++;
+                else result.CodeLines++;
+            }
+        }
+
+        private static void ParseNoComments( List<string> lines, CountResult result )
+        {
+            foreach ( string line in lines )
+            {
+                bool hasCode = false;
+                for ( int i = 0; i < line.Length; i++ )
+                {
+                    if ( !char.IsWhiteSpace( line[i] ) ) { hasCode = true; break; }
+                }
+                if ( hasCode ) result.CodeLines++;
+                else result.BlankLines++;
             }
         }
     }
