@@ -170,9 +170,11 @@ namespace CodeLineCounter
             public bool InArcenXml;
         }
 
-        public static void RunCount( string root, Action<string> log )
+        public static void RunCount( string root, Action<string> log, bool ignoreUnityProjects = false )
         {
             log( "Scanning: " + root );
+            if ( ignoreUnityProjects )
+                log( "(Unity projects will be ignored entirely)" );
             log( "" );
             DateTime start = DateTime.Now;
 
@@ -218,6 +220,12 @@ namespace CodeLineCounter
                 }
 
                 bool isUnityRoot = scope == outsideScope && IsUnityProjectRoot( subdirs );
+                if ( isUnityRoot && ignoreUnityProjects )
+                {
+                    log( "  Unity project detected; ignoring entirely: " + dir );
+                    skippedDirs++;
+                    continue;
+                }
                 ScopeBucket scopeForChildren = scope;
                 if ( isUnityRoot )
                 {

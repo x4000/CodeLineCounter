@@ -21,6 +21,7 @@ namespace CodeLineCounter
             this.lblFolder = new System.Windows.Forms.Label();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.btnRecentFolders = new System.Windows.Forms.Button();
+            this.chkIgnoreUnity = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             //
             // btnRecentFolders
@@ -32,6 +33,17 @@ namespace CodeLineCounter
             this.btnRecentFolders.Text = "Recent Folders ▼";
             this.btnRecentFolders.UseVisualStyleBackColor = true;
             this.btnRecentFolders.Click += new System.EventHandler(this.btnRecentFolders_Click);
+            //
+            // chkIgnoreUnity
+            //
+            this.chkIgnoreUnity.AutoSize = true;
+            this.chkIgnoreUnity.Location = new System.Drawing.Point(280, 22);
+            this.chkIgnoreUnity.Name = "chkIgnoreUnity";
+            this.chkIgnoreUnity.Size = new System.Drawing.Size(130, 17);
+            this.chkIgnoreUnity.TabIndex = 2;
+            this.chkIgnoreUnity.Text = "Ignore Unity Projects";
+            this.chkIgnoreUnity.UseVisualStyleBackColor = true;
+            this.chkIgnoreUnity.CheckedChanged += new System.EventHandler(this.chkIgnoreUnity_CheckedChanged);
             //
             // btnCountLines
             //
@@ -83,6 +95,7 @@ namespace CodeLineCounter
             this.Controls.Add(this.txtOutput);
             this.Controls.Add(this.lblFolder);
             this.Controls.Add(this.txtFolder);
+            this.Controls.Add(this.chkIgnoreUnity);
             this.Controls.Add(this.btnRecentFolders);
             this.Controls.Add(this.btnCountLines);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
@@ -100,5 +113,6 @@ namespace CodeLineCounter
         private System.Windows.Forms.Label lblFolder;
         private System.Windows.Forms.TextBox txtOutput;
         private System.Windows.Forms.Button btnRecentFolders;
+        private System.Windows.Forms.CheckBox chkIgnoreUnity;
     }
 }

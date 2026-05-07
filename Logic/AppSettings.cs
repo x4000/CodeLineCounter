@@ -11,6 +11,7 @@ namespace CodeLineCounter
 
         public string FolderPath { get; set; } = string.Empty;
         public List<string> RecentFolders { get; set; } = new List<string>();
+        public bool IgnoreUnityProjects { get; set; } = false;
 
         public void AddRecentFolder( string folder )
         {

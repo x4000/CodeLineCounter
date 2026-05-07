@@ -33,6 +33,13 @@ namespace CodeLineCounter
         {
             _settings = AppSettings.Load();
             txtFolder.Text = _settings.FolderPath;
+            chkIgnoreUnity.Checked = _settings.IgnoreUnityProjects;
+        }
+
+        private void chkIgnoreUnity_CheckedChanged( object sender, EventArgs e )
+        {
+            _settings.IgnoreUnityProjects = chkIgnoreUnity.Checked;
+            _settings.Save();
         }
 
         private void btnRecentFolders_Click( object sender, EventArgs e )
@@ -106,12 +113,15 @@ namespace CodeLineCounter
         {
             string folderText = txtFolder.Text.Trim();
             _settings.FolderPath = folderText;
+            _settings.IgnoreUnityProjects = chkIgnoreUnity.Checked;
             _settings.AddRecentFolder( folderText );
             _settings.Save();
 
             string targetFolder = ResolveTargetFolder();
             if ( targetFolder == null )
                 return;
+
+            bool ignoreUnity = chkIgnoreUnity.Checked;
 
             txtOutput.Clear();
             SetButtonsEnabled( false );
@@ -120,7 +130,7 @@ namespace CodeLineCounter
             {
                 try
                 {
-                    LineCounter.RunCount( targetFolder, Log );
+                    LineCounter.RunCount( targetFolder, Log, ignoreUnity );
                 }
                 catch ( Exception ex )
                 {
